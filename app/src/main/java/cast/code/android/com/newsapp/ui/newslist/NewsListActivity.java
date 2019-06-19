@@ -1,4 +1,4 @@
-package cast.code.android.com.newsapp.ui;
+package cast.code.android.com.newsapp.ui.newslist;
 
 import android.app.ProgressDialog;
 import android.content.Context;

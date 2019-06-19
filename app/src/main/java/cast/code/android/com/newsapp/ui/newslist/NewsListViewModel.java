@@ -1,4 +1,4 @@
-package cast.code.android.com.newsapp.ui;
+package cast.code.android.com.newsapp.ui.newslist;
 
 import android.app.Application;
 
@@ -8,8 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 import cast.code.android.com.newsapp.models.ArticleModel;
 
