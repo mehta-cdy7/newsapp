@@ -4,9 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -15,14 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import cast.code.android.com.newsapp.R;
 import cast.code.android.com.newsapp.constants.IntentConstants;
 import cast.code.android.com.newsapp.models.ArticleModel;
+import cast.code.android.com.newsapp.ui.newsdetail.NewsDetailActivity;
 import cast.code.android.com.newsapp.utils.Utils;
 
 public class NewsListActivity extends AppCompatActivity implements NewsAdapter.OnItemClickListner, View.OnClickListener {
+
     private RecyclerView rvArticlesList;
     private NewsAdapter newsAdapter;
     private boolean isLoading = false;
@@ -43,6 +45,7 @@ public class NewsListActivity extends AppCompatActivity implements NewsAdapter.O
         mActivity = this;
 
         initView();
+        fetchNews();
     }
 
 
@@ -72,6 +75,7 @@ public class NewsListActivity extends AppCompatActivity implements NewsAdapter.O
 
     private void fetchNews() {
         showHideProgressDialog( true );
+
         newsListViewModel.getArticles().observe( this, new Observer<List<ArticleModel>>() {
             @Override
             public void onChanged(List<ArticleModel> articleModel) {
